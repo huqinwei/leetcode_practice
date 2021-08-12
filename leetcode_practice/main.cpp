@@ -9,15 +9,21 @@ int main() {
     /////////////////////////solution20-29 start///////////////////////////////////////////
     Solution_2x sol_2x;
 
-#if 0
     ListNode *p13 = new ListNode(15);
     ListNode *p12 = new ListNode(3, p13);
-    ListNode *p11 = new ListNode(1, p12);
+    ListNode *p11 = new ListNode(2, p12);
+    ListNode *p10 = new ListNode(1, p11);
     ListNode *p23 = new ListNode(7);
     ListNode *p22 = new ListNode(4, p23);
     ListNode *p21 = new ListNode(2, p22);
-    ListNode* merged_list = sol_2x.mergeTwoLists(p11,p21);
-#endif
+    //ListNode* merged_list = sol_2x.mergeTwoLists(p11,p21);
+    //ListNode* ret24 = sol_2x.swapPairs(p10);
+    //std::vector<int> nums({ 0, 1, 2, 2, 3, 0, 4, 2 });
+    std::vector<int> nums({1 });
+    sol_2x.removeElement(nums,1);
+
+    
+
 
     std::vector<std::string> res22;
     res22 = sol_2x.generateParenthesis(2);
@@ -28,16 +34,21 @@ int main() {
     bool ret2x = sol_2x.isValid("()[]{}");
     return 0;
 
-    std::vector<int> nums = { 2, 7, 11, 15 };
+    std::vector<int> nums2 = { 2, 7, 11, 15 };
     int target = 9;
 
     Solution_0x sol_1;
     std::vector<int> res;
-    res = sol_1.twoSum(nums,target);
+    res = sol_1.twoSum(nums2,target);
     return 0;
 
 
     /////////////////////////solution20-29 end///////////////////////////////////////////
+
+
+
+
+    ////////////////////////////////////solution0-9 start///////////////////////////////////////////
     Solution_0x sol;
     /*
     *µÚÒ»Ìâ
@@ -69,6 +80,7 @@ int main() {
 // 
 //     ListNode *ret = sol.addTwoNumbers(&l3, &l41);
 
+////////////////////////////////////solution0-9 end///////////////////////////////////////////
 
     return 0;
 

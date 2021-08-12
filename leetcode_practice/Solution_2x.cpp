@@ -85,6 +85,39 @@ std::vector<std::string> Solution_2x::generateParenthesis(int n) {
     return res;
 }
 
+ListNode* Solution_2x::swapPairs(ListNode* head) {
+    if (!head || !head->next)//也是必须的，中间过程不会触发问题，但是起始head==NULL可能发生，因为是||，所以head->next可以并列而不报错
+        return head;
+    //加各种if判断
+    ListNode* next = head->next;
+    if (next->next)//没有下一段则不需要递归
+        head->next = swapPairs(next->next);//衔接
+    else//必须的终止操作，不然head和next死循环？程序不会死，但是链表会死
+        head->next = NULL;
+    next->next = head;//逆转当前段，（顺序，太早操作会破坏next->next）
+
+    return next;
+}
+int Solution_2x::removeElement(std::vector<int>& nums, int val) {
+    if (nums.size() == 0)
+        return 0;
+    int index_l = 0;
+    int index_r = nums.size() - 1;
+
+    while (index_l < index_r)
+    {
+        while (index_l<index_r && nums[index_r] == val)//index_r的动态调整
+            index_r -= 1;
+        while (index_l < index_r && nums[index_l] != val)
+            index_l += 1;
+
+        int tmp = nums[index_r];
+        nums[index_r] = nums[index_l];
+        nums[index_l] = tmp;
+    }
+    return nums[index_l] == val ? index_l : index_l + 1;
+}
+
 //也不是merge，这块想写的是加法来着
 /*
 ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {

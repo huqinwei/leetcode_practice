@@ -20,5 +20,11 @@ public:
 
     //22.生成括号
     std::vector<std::string> generateParenthesis(int n);
+
+    //24:两两交换链表节点：递归法可能更清晰一点；迭代法：每次跳两个，来回一通指针操作，局部改造，大顺序没变；
+    ListNode* swapPairs(ListNode* head);
+
+    //27.移除数组元素，隐含条件：超出新长度的数值不关心，双指针相向遍历，对调数值
+    int Solution_2x::removeElement(std::vector<int>& nums, int val);
 };
 
