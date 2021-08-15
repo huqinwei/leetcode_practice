@@ -82,42 +82,54 @@ std::vector<int> Solution_0x::twoSum_2points(std::vector<int>& nums, int target)
 }
 
 
-ListNode* Solution_0x::addTwoNumbers(ListNode* l1, ListNode* l2) {
-
-
-    /*
-    *做错了，因为逆序的缘故，其实头结点是最后一位，简单迭代就好，瓶颈是存储位数，以前做过，这次没读好题（或者写的难懂）
-    unsigned long long num1 = 0,num2=0,sum=0;
-    //输入是逆序的
-    //节点2  4  3对应数字342
-    int i = 0,j=0;
-    while (l1 != NULL) {
-    num1 += l1->val * pow(10,i++);
-    l1 = l1->next;
-    }
-    while (l2 != NULL) {
-    num2 += l2->val * pow(10,j++);
-    l2 = l2->next;
-    }
-    sum = num1 + num2;
-
+ListNode* Solution_0x::addTwoNumbers_iteration(ListNode* l1, ListNode* l2) {
     ListNode*ret = new ListNode();
     ListNode*cur = ret;
-    while (sum) {
-    cur->val = sum%10;
-    sum /= 10;
-    if (!sum) {
-    return ret;
-    }
-    ListNode*tmp = new ListNode();
-    cur->next = tmp;
-    cur = tmp;
+    bool carry = 0;
+    while (l1 != NULL || l2 != NULL || carry) {
+        int tmp = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;//优先级有问题，必须括号
+        carry = tmp >= 10 ? 1 : 0;
+        cur->val = tmp % 10;
+        if (l1)
+            l1 = l1->next;
+        if (l2)
+            l2 = l2->next;
+        if (!carry && !l1 && !l2)
+            return ret;
+        cur->next = new ListNode();
+        cur = cur->next;
 
     }
-
     return ret;
-    */
-    return NULL;
+}
+
+//还有一个方法把carry附加到l1或者l2。
+inline ListNode* add_two_numbers(ListNode* l1, ListNode* l2, bool carry) {
+    ListNode *curr = new ListNode;
+    if (l1) {
+        curr->val += l1->val;
+        l1 = l1->next;
+    }
+    if (l2) {
+        curr->val += l2->val;
+        l2 = l2->next;
+    }
+    curr->val += carry;
+    carry = curr->val / 10;
+    curr->val %= 10;
+
+    if (l1||l2||carry) {
+        curr->next = add_two_numbers(l1, l2, carry);
+    }
+
+    return curr;
+}
+
+
+ListNode* Solution_0x::addTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode ret;
+    ret.next = add_two_numbers(l1, l2, 0);
+    return ret.next;
 }
 
 

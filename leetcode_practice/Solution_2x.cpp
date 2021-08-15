@@ -98,6 +98,21 @@ ListNode* Solution_2x::swapPairs(ListNode* head) {
 
     return next;
 }
+
+int Solution_2x::removeDuplicates(std::vector<int>& nums) {
+    if (nums.size() == 0)
+        return 0;
+    int slow = 0,fast = 0;
+    while (fast < nums.size()) {
+        if (nums[slow] == nums[fast])
+            fast++;
+        else
+            nums[++slow] = nums[fast];
+    }
+    return slow+1;
+}
+
+
 int Solution_2x::removeElement(std::vector<int>& nums, int val) {
     if (nums.size() == 0)
         return 0;
