@@ -161,6 +161,7 @@
     <ClCompile Include="Solution_79x.cpp" />
     <ClCompile Include="Solution_88x.cpp" />
     <ClCompile Include="Solution_8x.cpp" />
+    <ClCompile Include="sort_collections.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Solution_79x.h" />
     <ClInclude Include="Solution_88x.h" />
     <ClInclude Include="Solution_8x.h" />
+    <ClInclude Include="sort_collections.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

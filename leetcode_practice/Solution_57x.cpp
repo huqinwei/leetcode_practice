@@ -11,7 +11,7 @@ inline bool is_same_value_structure(TreeNode* root,TreeNode*subRoot){
         return false;
     if (root->val != subRoot->val)
         return false;
-    //终止条件？当前值相等，又没有子树
+    //终止条件:当前值相等，又没有子树
     if (!root->left && !root->right && !subRoot->left && !subRoot->right)
         return true;
     return (is_same_value_structure(root->left, subRoot->left)//这时候subRoot也要递归了，其他时候subRoot是不用递归的

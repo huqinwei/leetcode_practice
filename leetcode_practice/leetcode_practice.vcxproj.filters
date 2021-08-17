@@ -60,6 +60,9 @@
     <ClCompile Include="Solution_4x.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="sort_collections.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Solution_2x.h">
@@ -105,6 +108,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Solution_4x.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sort_collections.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
