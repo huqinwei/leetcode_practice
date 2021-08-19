@@ -1,4 +1,4 @@
-#include "Solution_57x.h"
+#include "Solution_5xx.h"
 
 
 //要判断完全一致性
@@ -40,3 +40,43 @@ bool Solution_57x::isSubtree_bruteforce(TreeNode* root, TreeNode* subRoot) {
 
 
 
+
+int Solution_50x::fib_mine(int n)
+{
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return fib_mine(n - 1) + fib_mine(n - 2);
+}
+
+// int Solution_50x::fib(int n) {
+//     if (n < 2) {
+//         return n;
+//     }
+//     int p = 0, q = 0, r = 1;
+// 
+//     //滑块，数轴上的“下标”
+//     for (int i = 2; i <= n; ++i) {
+//         p = q;
+//         q = r;
+//         r = p + q;
+//     }
+//     return r;
+// }
+
+
+int Solution_50x::fib(int n) {
+    if (n < 2)
+        return n;
+
+    //考虑到n可以是0，可以把n看成从0起的下标，n==2时应该返回下标2，也就是0+1=1,n==3时，返回下标3，也就是1+1=2
+    int p = -1, q = 0, r = 1;//初始化的值很重要，如果n==2算是滑动了一个窗口，那么q和r就是0和1，p无所谓
+    for (int i = 2; i <= n; ++i) {
+        p = q;
+        q = r;
+        r = p + q;
+        std::cout << "slide window:" << p << " " << q << " " << r << std::endl;//滑窗演示
+    }
+    return r;
+}

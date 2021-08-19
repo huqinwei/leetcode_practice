@@ -8,7 +8,7 @@
 #include "base.h"
 #include <unordered_map>
 
-class Solution_88x {
+class Solution_8xx {
 public:
 
     //887扔鸡蛋，问找到f的最小次数！

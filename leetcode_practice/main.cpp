@@ -1,23 +1,22 @@
-#include "Solution_0x.h"
-#include "Solution_2x.h"
-#include "Solution_4x.h"
-#include "Solution_8x.h"
-#include "Solution_12x.h"
-#include "Solution_13x.h"
-#include "Solution_16x.h"
-#include "Solution_18x.h"
+#include "Solution_0xx.h"
 
-#include "Solution_21x.h"
-#include "Solution_24x.h"
+#include "Solution_1xx.h"
+#include "Solution_2xx.h"
+
+#include "Solution_5xx.h"
+#include "Solution_7xx.h"
+#include "Solution_8xx.h"
+#include "Solution_9xx.h"
+#include "Solution_11xx.h"
 
 #include "sort_collections.h"
 
-#include <vector>
-#include <iostream>
+#include "base.h"
 
 
 int main() {
 
+    /*
     SortCollections sc;
 //     int array[12] = { 2,1,0,2,5,0,1,3,2,1,2,1 };
 //     sc.Quicksort(array, 0, 11);
@@ -28,19 +27,58 @@ int main() {
     end_time = std::chrono::high_resolution_clock::now();
     std::cout << "cost time: " << double(std::chrono::duration_cast<std::chrono::microseconds>((end_time - start_time)).count()) / 1e6 << std::endl;
     return 0;
+    */
+
+
 
     /////////////////////////solution20-29 start///////////////////////////////////////////
-    Solution_2x sol_2x;
-    Solution_0x sol_0x;
-    Solution_4x sol_4x;
-    Solution_8x sol_8x;
-    Solution_13x sol_13x;
-    Solution_16x sol_16x;
-    Solution_18x sol_18x;
-    Solution_21x sol_21x;
-    Solution_24x sol_24x;
-    Solution_12x sol_12x;
+    Solution_0xx sol_2x;
+    Solution_0xx sol_3x;
+    Solution_0xx sol_0x;
+    Solution_0xx sol_4x;
+    Solution_0xx sol_8x;
+    Solution_1xx sol_13x;
+    Solution_1xx sol_16x;
+    Solution_1xx sol_18x;
+    Solution_2xx sol_21x;
+    Solution_2xx sol_20x;
+    Solution_2xx sol_24x;
+    Solution_1xx sol_12x;
+    Solution_50x sol_50x;
+    Solution_7xx sol_70x;
+    Solution_9xx sol_97x;
+    Solution_2xx sol_27x(1702766719);
 
+
+    return 0;
+
+    sol_50x.fib(8);
+
+    std::vector<int> nums_search({ 1,3 });
+    //int ret70 = sol_70x.search(nums_search, 2);
+    //int ret3 = sol_3x.searchInsert(nums_search, 0);
+    //int ret27 = sol_27x.firstBadVersion(2126753390);
+
+    std::vector<int> nums_non_decreasing({ -5,-3,-2,1,4,8});
+    sol_97x.sortedSquares(nums_non_decreasing);
+    
+
+
+
+
+
+
+
+    std::vector<std::vector<char>> matrix_islands;
+    matrix_islands.push_back(std::vector<char>({ '1', '1', '0', '0', '0' }));
+    matrix_islands.push_back(std::vector<char>({ '1', '1', '0', '0', '0' }));
+    matrix_islands.push_back(std::vector<char>({ '0', '0', '1', '0', '0' }));
+    matrix_islands.push_back(std::vector<char>({ '0', '0', '0', '1', '1' }));
+
+
+    int islands_nums = sol_20x.numIslands_BFS(matrix_islands);
+
+    
 
     sol_16x.compareVersion("1.0", "1.0.0");
 
@@ -134,7 +172,7 @@ int main() {
     std::vector<int> nums22 = { 2, 7, 11, 15 };
     int target = 9;
 
-    Solution_0x sol_1;
+    Solution_0xx sol_1;
     std::vector<int> res;
     res = sol_1.twoSum(nums22,target);
     return 0;
@@ -146,7 +184,7 @@ int main() {
 
 
     ////////////////////////////////////solution0-9 start///////////////////////////////////////////
-    Solution_0x sol;
+    Solution_0xx sol;
     /*
     *µÚÒ»Ìâ
     std::vector<int> nums;

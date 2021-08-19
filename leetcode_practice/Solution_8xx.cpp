@@ -1,10 +1,10 @@
-#include "Solution_88x.h"
+#include "Solution_8xx.h"
 
 
 
 
 
-int Solution_88x::superEggDrop(int k, int n) {
+int Solution_8xx::superEggDrop(int k, int n) {
     if (k <= 0)
         return 0;
     if (k <= 1) {//少侠，忘了你只有一个蛋了？

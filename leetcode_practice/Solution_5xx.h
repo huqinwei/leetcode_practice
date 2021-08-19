@@ -9,6 +9,8 @@
 #include <unordered_set>
 
 
+///所有500-599题
+
 class Solution_57x {
 public:
 
@@ -24,4 +26,21 @@ public:
 
 
 };
+
+
+
+class Solution_50x {
+public:
+
+
+
+    //509
+    //这个不算DP？或者递归开销大？
+    int fib_mine(int n);
+
+    int fib(int n);
+
+
+};
+
 

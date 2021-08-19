@@ -18,99 +18,66 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Solution_2x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_0x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_13x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_16x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_24x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_8x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_88x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_6x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_12x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_18x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_21x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_79x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_57x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Solution_4x.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="sort_collections.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_97x.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_5xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_11xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_1xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_2xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_0xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_7xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_9xx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution_8xx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Solution_2x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="base.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Solution_0x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_13x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_16x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_24x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_8x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_88x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_6x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_12x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_18x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_21x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_79x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_57x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Solution_4x.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="sort_collections.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_5xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_11xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_1xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_2xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_0xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_7xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_8xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution_9xx.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

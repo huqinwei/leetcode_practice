@@ -9,8 +9,12 @@
 #include <unordered_set>
 
 
-class Solution_79x {
+///所有700-799题
+
+class Solution_7xx {
 public:
+    //704 二分查找
+    int search(std::vector<int>& nums, int target);
 
 
 
