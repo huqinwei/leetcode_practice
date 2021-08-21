@@ -481,6 +481,38 @@ double Solution_0xx::newtonSqrt(double n) {
 }
 
 
+int Solution_0xx::climbStairs_slide_window(int n) {
+    if (n == 1)
+        return 1;
+    int p = 0;
+    int q = 1;
+    int r = 1;
+    for (int i = 2; i <= n; ++i)
+    {
+        p = q;
+        q = r;
+        r = p + q;
+    }
+    return r;
+}
+
+int Solution_0xx::climbStairs(int n) 
+{
+    std::vector<int> nums(n + 1);
+    nums[0] = 1;
+    nums[1] = 1;
+
+    if (n == 1)
+        return 1;
+
+    for (int i = 2; i <= n; ++i)
+    {
+        nums[i] = nums[i - 2] + nums[i - 1];
+    }
+
+    return nums[n];
+}
+
 
 void Solution_0xx::merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) {
     int insert_index = m + n - 1;

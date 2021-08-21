@@ -147,6 +147,41 @@ int Solution_2xx::numIslands_BFS(std::vector<std::vector<char>>& grid) {
     return islands;
 }
 
+
+
+int Solution_2xx::rob_II(vector<int>& nums) {
+    //比版本一难，因为那个dp可以假设后边没有，但是这里绕一圈却依赖第一个的状态
+    //其实也不难？多比较后边一个？但是金额不能重
+    //思路：既然是dp，当你到达dp[i-1]，想决定选取dp[i-1]还是选取dp[i]的时候，你是不知道nums[0]到底有没有被选中的
+    //dp[i-1]包含或者不包含nums[0]，都在覆盖范围内，所以单纯从dp是不能判断闭环的
+    //方法是拆分数组：从0开始一组，从1开始一组，从0开始那组最终迭代到i-1，从1开始那组迭代到i，这样第二组能完美避开nums[0]的情况
+    //最终产出：两个最终结果取max
+    int n = nums.size();
+    if (n < 2)
+        return nums[0];
+    if (n < 3)//如果要启动第二组dp，至少长度为3
+        return max(nums[0], nums[1]);
+
+    //第一组与第二组合并，注意分别控制循环的上下限
+    vector<int> dp(n);
+    vector<int> dp_(n + 2);//一方面为了下标统一，一方面要算好总数量，这里是n+2，比dp长2
+    dp[0] = nums[0];
+    dp[1] = max(nums[0], nums[1]);
+
+    dp_[1] = nums[1];
+    dp_[2] = max(nums[1], nums[2]);
+
+    for (int i = 2; i < n; ++i) {
+        if (i < n - 1) {
+            dp[i] = max(nums[i] + dp[i - 2], dp[i - 1]);
+        }
+        if (i >= 3) {
+            dp_[i] = max(nums[i] + dp_[i - 2], dp_[i - 1]);
+        }
+    }
+
+    return std::max(dp[n - 2], dp_[n-1]);
+}
 bool Solution_2xx::containsDuplicate(std::vector<int>& nums) {
     std::unordered_set<int> sets;
     for (int i = 0; i < nums.size(); ++i) {
@@ -199,7 +234,29 @@ int Solution_2xx::firstBadVersion(int n) {
     return badversion_recursion(1, n);
 }
 
+void Solution_2xx::moveZeroes(std::vector<int>& nums) {
 
+    int n = nums.size();
+    if (n < 2)
+        return;
+    int slow = 0,fast = 0;//fast需要初始化过程
+
+    while (fast < n) {
+        while (fast < n && nums[fast] == 0) {//这个过程不用单独初始化一次，放到循环即可，&&左右顺序写错容易越界
+            fast++;
+        }
+        if (fast >= n)//提前终止
+            break;
+        nums[slow] = nums[fast];
+        slow++;
+        fast++;
+    }
+    while (slow < n) {//其余填零
+        nums[slow] = 0;
+        slow++;
+    }
+
+}
 
 
 

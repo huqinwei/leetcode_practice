@@ -19,7 +19,7 @@ inline bool is_same_value_structure(TreeNode* root,TreeNode*subRoot){
         );
 }
 //先判断前置条件
-bool Solution_57x::isSubtree_bruteforce(TreeNode* root, TreeNode* subRoot) {
+bool Solution_5xx::isSubtree_bruteforce(TreeNode* root, TreeNode* subRoot) {
     //先判断谁是空？如果子树是空，应该是包含的（但是用例没有测出来，此处返回true也答题正确
     if (subRoot == NULL) {
         return true;
@@ -41,7 +41,7 @@ bool Solution_57x::isSubtree_bruteforce(TreeNode* root, TreeNode* subRoot) {
 
 
 
-int Solution_50x::fib_mine(int n)
+int Solution_5xx::fib_mine(int n)
 {
     if (n == 0)
         return 0;
@@ -66,7 +66,7 @@ int Solution_50x::fib_mine(int n)
 // }
 
 
-int Solution_50x::fib(int n) {
+int Solution_5xx::fib(int n) {
     if (n < 2)
         return n;
 
@@ -79,4 +79,32 @@ int Solution_50x::fib(int n) {
         std::cout << "slide window:" << p << " " << q << " " << r << std::endl;//滑窗演示
     }
     return r;
+}
+
+inline void swap(string&s, int i, int j)
+{
+    char tmp = s[i];
+    s[i] = s[j];
+    s[j] = tmp;
+}
+inline void reverse_single_word(string&s, int i, int j) {
+    while (i < j) {
+        swap(s, i++, j--);
+    }
+}
+string Solution_5xx::reverseWords(string s) {
+    //先做一个大循环，找单词，再用一个小循环，翻转单词
+    int n = s.size();
+    int i = 0;
+    int j = 0;
+    while (j < n) {
+        while (i < n&&s[i] == ' ')//每一次找好i
+            i++;
+        j = i;
+        while (j < n&&s[j] != ' ')
+            j++;
+        reverse_single_word(s, i, j - 1);
+        i = j;
+    }
+    return s;
 }

@@ -151,11 +151,11 @@
     <ClCompile Include="Solution_11xx.cpp" />
     <ClCompile Include="Solution_1xx.cpp" />
     <ClCompile Include="Solution_2xx.cpp" />
+    <ClCompile Include="Solution_3xx.cpp" />
     <ClCompile Include="Solution_5xx.cpp" />
     <ClCompile Include="Solution_7xx.cpp" />
     <ClCompile Include="Solution_8xx.cpp" />
     <ClCompile Include="Solution_9xx.cpp" />
-    <ClCompile Include="Solution_97x.cpp" />
     <ClCompile Include="sort_collections.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +164,7 @@
     <ClInclude Include="Solution_11xx.h" />
     <ClInclude Include="Solution_1xx.h" />
     <ClInclude Include="Solution_2xx.h" />
+    <ClInclude Include="Solution_3xx.h" />
     <ClInclude Include="Solution_5xx.h" />
     <ClInclude Include="Solution_7xx.h" />
     <ClInclude Include="Solution_8xx.h" />

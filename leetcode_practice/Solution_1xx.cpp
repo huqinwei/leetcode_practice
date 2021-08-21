@@ -51,6 +51,27 @@ void Solution_1xx::rotate(std::vector<int>& nums, int k) {
 }
 
 
+int Solution_1xx::rob_II(std::vector<int>& nums) {
+    //迭代逻辑：假设数据只有当前这么长，不看下一长度
+    int n = nums.size();
+
+    if (n < 1)
+        return 0;
+    if (n == 1)
+        return nums[0];
+
+    std::vector<int> dp(n);
+    dp[0] = nums[0];
+    dp[1] = std::max(nums[0], nums[1]);
+
+    //核心公式：当前的加上前跳一步的累积是否大于前一步的累积
+    for (int i = 2; i < n; i++) {
+        dp[i] = std::max(dp[i - 2] + nums[i], dp[i - 1]);
+    }
+
+    return dp[n - 1];
+}
+
 
 int Solution_1xx::singleNumber(std::vector<int>& nums) {
     int result = 0;
@@ -121,6 +142,25 @@ int Solution_1xx::compareVersion_iteration(std::string version1, std::string ver
 
     }
     return 0;
+}
+
+vector<int> Solution_1xx::twoSum(vector<int>& numbers, int target) {
+    int n = numbers.size();
+    std::vector<int> ret(2);
+    if (n < 2)
+        return ret;
+    int i = 0;
+    int j = n - 1;
+    while (i < j) {
+        if (numbers[i] + numbers[j] > target)
+            j--;
+        else if (numbers[i] + numbers[j] < target)   //使用互斥条件，一次只移动一个指针
+            i++;
+        else {
+            return{ i + 1,j + 1 };//vector可以返回的形式//题目要求的下标规则
+        }
+    }
+    return ret;
 }
 
 

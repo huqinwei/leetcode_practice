@@ -78,6 +78,13 @@ public:
     double newtonSqrt(double n);
 
 
+    //70:爬楼梯：动态规划
+    //滑窗法
+    int climbStairs_slide_window(int n);
+    //数组法（因为n有限，设立一个长为n的数组是可以接受的）
+    int climbStairs(int n);
+
+
     //88  合并两个有序数组，放在nums1，有预留空间\
             输入：nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3\
         输出：[1, 2, 2, 3, 5, 6]

@@ -41,15 +41,21 @@ int main() {
     Solution_1xx sol_16x;
     Solution_1xx sol_18x;
     Solution_2xx sol_21x;
+    Solution_2xx sol_2xx;
     Solution_2xx sol_20x;
     Solution_2xx sol_24x;
     Solution_1xx sol_12x;
-    Solution_50x sol_50x;
+    Solution_5xx sol_50x;
     Solution_7xx sol_70x;
     Solution_9xx sol_97x;
     Solution_2xx sol_27x(1702766719);
 
+    std::vector<int> nums_rob({ 2,3,2 });
 
+    int ret_rob2 = sol_2xx.rob_II(nums_rob);
+
+    std::vector<int> nums_movezeroes({ 0,0 });
+    sol_2xx.moveZeroes(nums_movezeroes);
     return 0;
 
     sol_50x.fib(8);
