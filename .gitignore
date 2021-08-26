@@ -30,3 +30,7 @@
 *.pdb
 *.Vc.db
 *.VC.db
+*.log
+*.exe
+*.obj
+*.idb
