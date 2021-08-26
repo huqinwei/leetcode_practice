@@ -4,18 +4,34 @@
 #include <algorithm>//std::min等
 #include <vector>
 #include "math.h"
-#include <iostream>
-#include <queue>
-#include <unordered_map>
-#include <vector>
-#include <iostream>
-#include <unordered_set>
 
-#include <string.h>
 #include <chrono>
+#include <string.h>
+#include <string>
+
+//IO
+#include <iostream>
+
+//容器
+#include <vector>
+#include <queue>
+
+//算法
+#include "math.h"
+#include <algorithm>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+
 
 using namespace std;
 
+
+struct SinglyListNode {
+    int val;
+	SinglyListNode* next;
+	SinglyListNode(int x) : val(x), next(NULL) {}
+};
 
 
 struct ListNode {
@@ -36,4 +52,21 @@ struct TreeNode {
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+class Node {//N叉树的数据结构
+public:
+	int val;
+	vector<Node*> children;
+
+	Node() {}
+
+	Node(int _val) {
+		val = _val;
+	}
+
+	Node(int _val, vector<Node*> _children) {
+		val = _val;
+		children = _children;
+	}
 };

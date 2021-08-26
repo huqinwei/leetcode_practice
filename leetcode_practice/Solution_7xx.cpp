@@ -1,7 +1,7 @@
 #include "Solution_7xx.h"
 
 
-inline int search_recursion(std::vector<int>& nums,int start,int end, int target) {
+  int search_recursion(std::vector<int>& nums,int start,int end, int target) {
     int n = end-start+1;
     if (n <= 0)
         return -1;
@@ -21,6 +21,79 @@ int Solution_7xx::search(std::vector<int>& nums, int target) {
 
 }
 
+void floodFill_DFS_recursion() {
+
+}
+
+vector<vector<int>> Solution_7xx::floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+    vector<vector<int>> res(image);
+
+    int height = res.size();
+    int width = res[0].size();
+
+	vector<vector<int>> visited(res.size());
+    for (int i = 0; i < visited.size(); ++i) {
+        visited[i].resize(res[0].size());
+    }
+    int target_value = image[sr][sc];//可以用char来改善内存大小
+
+    queue<pair<int, int>> q;
+    q.push(make_pair(sr, sc));
+    while (q.size()) {
+        auto data = q.front();
+        q.pop();
+        int curr_row = data.first;
+		int curr_col = data.second;
+		visited[curr_row][curr_col] = 1;//访问
+        res[curr_row][curr_col] = newColor;//上色
+
+		if (curr_row + 1 < height && image[curr_row + 1][curr_col] ==target_value && !visited[curr_row + 1][curr_col]) {
+			q.push(make_pair(curr_row + 1, curr_col));
+		}
+		if (curr_row - 1 >= 0 && image[curr_row - 1][curr_col] == target_value && !visited[curr_row - 1][curr_col]) {
+			q.push(make_pair(curr_row - 1, curr_col));
+		}
+		if (curr_col + 1 < width && image[curr_row][curr_col + 1] == target_value && !visited[curr_row][curr_col+1]) {
+			q.push(make_pair(curr_row, curr_col + 1));
+		}
+		if (curr_col - 1 >= 0 && image[curr_row][curr_col - 1] == target_value && !visited[curr_row][curr_col - 1]) {
+			q.push(make_pair(curr_row, curr_col - 1));
+		}
+    }
+    return res;
+}
+
+vector<vector<int>> Solution_7xx::floodFill_trick(vector<vector<int>>& image, int sr, int sc, int newColor) {
+	//取巧思路：不做visited，直接原地修改
+	int height = image.size();
+	int width = image[0].size();
+
+	int target_value = image[sr][sc];//可以用char来改善内存大小
+
+	queue<pair<int, int>> q;
+	q.push(make_pair(sr, sc));
+	while (q.size()) {
+		auto data = q.front();
+		q.pop();
+		int curr_row = data.first;
+		int curr_col = data.second;
+        image[curr_row][curr_col] = newColor;//上色
+
+		if (curr_row + 1 < height && (image[curr_row + 1][curr_col] == target_value )) {
+			q.push(make_pair(curr_row + 1, curr_col));
+		}
+		if (curr_row - 1 >= 0 && image[curr_row - 1][curr_col] == target_value) {
+			q.push(make_pair(curr_row - 1, curr_col));
+		}
+		if (curr_col + 1 < width && image[curr_row][curr_col + 1] == target_value ) {
+			q.push(make_pair(curr_row, curr_col + 1));
+		}
+		if (curr_col - 1 >= 0 && image[curr_row][curr_col - 1] == target_value ) {
+			q.push(make_pair(curr_row, curr_col - 1));
+		}
+	}
+	return image;
+}
 
 //实现思路：一共n的台阶，最终要到达的是台阶之外，也就是[n]，这个位置赋值0，然后dp动态寻找从前两个位置谁更合适
 int Solution_7xx::minCostClimbingStairs(std::vector<int>& cost) {

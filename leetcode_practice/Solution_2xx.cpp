@@ -21,7 +21,7 @@ ListNode* Solution_2xx::reverseList(ListNode* head) {
 //问题：如果mask==1和grid===0都是一样的作用，直接把grid置为零就好了？
 //是否因为访问过而把连通域切断？好像也不会！DFS，那个负责切的就先深入下去并且延伸了，其他的就用不着了，绝对是标准连续蔓延
 //不过好处是没修改原始数据
-inline void islands_DFS(std::vector<std::vector<char>>& grid, std::vector<std::vector<bool>> &mask,int i,int j) {
+  void islands_DFS(std::vector<std::vector<char>>& grid, std::vector<std::vector<bool>> &mask,int i,int j) {
     if (mask[i][j]||grid[i][j]=='0')//停止条件：访问过，或者不是岛屿
         return;
     mask[i][j] = true;//访问标记
@@ -67,7 +67,7 @@ int Solution_2xx::numIslands_DFS_mask(std::vector<std::vector<char>>& grid) {
 
 //原地修改原数据，不用mask
 //if语句那里还不够简洁，可以放在入口检查，但是都要检查，差不多
-inline void islands_DFS_inplace(std::vector<std::vector<char>>& grid, int i, int j) {
+  void islands_DFS_inplace(std::vector<std::vector<char>>& grid, int i, int j) {
     if (grid[i][j] == '0')//停止条件：访问过，或者不是岛屿
         return;
     grid[i][j] = '0';//访问标记
@@ -106,7 +106,7 @@ int Solution_2xx::numIslands_inplace(std::vector<std::vector<char>>& grid) {
 
 //原地修改原数据，不用mask
 //if语句那里还不够简洁，可以放在入口检查，但是都要检查，差不多
-inline void islands_BFS_inplace(std::vector<std::vector<char>>& grid, std::queue<std::pair<int, int>> &q,int i, int j) {
+  void islands_BFS_inplace(std::vector<std::vector<char>>& grid, std::queue<std::pair<int, int>> &q,int i, int j) {
     while (q.size()) {
         int i = q.front().first;
         int j = q.front().second;

@@ -1,9 +1,5 @@
 #pragma once
-#include <vector>
-#include <algorithm>
-#include "math.h"
-#include <iostream>
-#include <map>
+
 #include "base.h"
 
 ///所有0-99题
@@ -21,7 +17,8 @@ public:
     //递归法
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 
-
+    //19
+    ListNode* removeNthFromEnd(ListNode* head, int n);
 
     //20 有效的括号
     bool isValid(std::string s);
@@ -69,6 +66,10 @@ public:
     //一个up的BF，用了iter相关操作,比我的trap_BF要快，能通过
     int trap_BF2(std::vector<int>& height);
 
+    //38
+
+    string countAndSay(int n);
+
     //42 DP：max_l和max_r先迭代出来，然后直接查询
     //时间复杂度O(3*n)
     int trap_DP(std::vector<int>& height);
@@ -92,6 +93,7 @@ public:
     void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n);
 
 
-
+    //94 
+    vector<int> inorderTraversal(TreeNode* root);
 
 };

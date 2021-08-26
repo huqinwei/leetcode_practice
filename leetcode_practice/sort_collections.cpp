@@ -128,7 +128,7 @@ void SortCollections::Quicksort_regular(std::vector<int>& nums, int L, int R) {
 
 //升级版：pivot选值的优化
 //简单优化思路，left\mid\right三点，取三点的“中点”作为pivot，当然需要注意挖坑法的操作，实际操作最好是先交换到左侧，学别人的一个操作技巧
-inline void swap(std::vector<int>& nums, int L, int R) {
+  void swap(std::vector<int>& nums, int L, int R) {
     int tmp = nums[L];
     nums[L] = nums[R];
     nums[R] = tmp;

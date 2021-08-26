@@ -1,6 +1,20 @@
 #include "Solution_8xx.h"
 
-
+ListNode* Solution_8xx::middleNode(ListNode* head) {
+	ListNode* fast = head;
+	int cnt = 0;
+	while (fast)
+	{
+		fast = fast->next;
+		cnt++;
+	}
+	fast = head;
+	cnt /= 2;
+	while (cnt--) {
+		fast = fast->next;
+	}
+	return fast;
+}
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-inline void swap(vector<char>&s, int i, int j)
+  void swap(vector<char>&s, int i, int j)
 {
     int tmp = s[i];
     s[i] = s[j];

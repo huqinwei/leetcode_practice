@@ -93,7 +93,60 @@ int Solution_1xx::singleNumber_by_map(std::vector<int>& nums) {
         if (iter->second == 1)
             return iter->first;
     }
+    return result;
 }
+  void preorder_recuision(TreeNode* root, vector<int> &res_vec) {
+	//前序：根左右
+    if (!root)//stop
+        return;
+
+	res_vec.push_back(root->val);
+    preorder_recuision(root->left, res_vec);
+    preorder_recuision(root->right, res_vec);
+}
+
+vector<int> Solution_1xx::preorderTraversal(TreeNode* root) {
+	vector<int> res_vec;
+    preorder_recuision(root, res_vec);
+	return res_vec;
+}
+vector<int> Solution_1xx::levelOrderTraversal(TreeNode* root) {
+    //返回要求vector<vector<int>> ，可以给根赋level值，然后入队列时候存储，这样直接找一个合适的位置放在vector？
+    //或者交替使用queue，一个队列空了，切换到另一个
+    //
+    queue<TreeNode*> stack;
+	vector<int> res_vec;
+    if (!root)
+        return res_vec;
+    stack.push(root);
+    while (stack.size()) {
+        TreeNode* curr = stack.front();
+		stack.pop();
+        res_vec.push_back(curr->val);
+		if (curr->left)
+			stack.push(curr->left);
+		if (curr->right)
+			stack.push(curr->right);
+    }
+	return res_vec;
+}
+
+
+/* */ void postorder_recuision(TreeNode* root, vector<int>& res_vec) {
+	if (!root)//stop
+		return;
+
+    postorder_recuision(root->left, res_vec);
+	postorder_recuision(root->right, res_vec);
+	res_vec.push_back(root->val);
+}
+
+vector<int> Solution_1xx::postorderTraversal(TreeNode* root) {
+	vector<int> res_vec;
+    postorder_recuision(root, res_vec);
+	return res_vec;
+}
+
 
 int Solution_1xx::majorityElement_by_sort(std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end());
@@ -117,7 +170,7 @@ int Solution_1xx::majorityElement(std::vector<int>& nums) {
     return winner_value;
 }
 
-inline long long get_curr_version(std::string &s, int &ind) {
+/* */ long long get_curr_version(std::string &s, int &ind) {
     long long v = 0;
     while (ind < s.size() && s[ind] >= '0'&&s[ind] <= '9') {
         v = v * 10 + s[ind] - '0';

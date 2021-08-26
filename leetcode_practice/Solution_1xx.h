@@ -23,6 +23,16 @@ public:
     //练手map
     int singleNumber_by_map(std::vector<int>& nums);
 
+    //144. 二叉树的前序遍历
+	vector<int> preorderTraversal(TreeNode* root);
+
+    //BFS没有递归过程，是否会快?BFS更适合按层遍历，本质要的是queue结构，不是BFS，其实还是要DFS。
+	vector<int> levelOrderTraversal(TreeNode* root);
+
+
+    //145. 二叉树的后序遍历
+	vector<int> postorderTraversal(TreeNode* root);
+
     //169:low方法，利用了限制条件，不过太简单了，没意思
     int majorityElement_by_sort(std::vector<int>& nums);
     //169：摩尔投票法：其实也利用了限制条件，最优解一般都要充分利用限制条件

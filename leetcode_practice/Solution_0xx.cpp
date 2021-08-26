@@ -107,7 +107,7 @@ ListNode* Solution_0xx::addTwoNumbers_iteration(ListNode* l1, ListNode* l2) {
 }
 
 //还有一个方法把carry附加到l1或者l2。
-inline ListNode* add_two_numbers(ListNode* l1, ListNode* l2, bool carry) {
+/* */ ListNode* add_two_numbers(ListNode* l1, ListNode* l2, bool carry) {
     ListNode *curr = new ListNode;
     if (l1) {
         curr->val += l1->val;
@@ -136,7 +136,31 @@ ListNode* Solution_0xx::addTwoNumbers(ListNode* l1, ListNode* l2) {
 }
 
 
+ListNode* Solution_0xx::removeNthFromEnd(ListNode* head, int n) {
+	//思路：双指针，间隔n出发，一个到终点以后，另一个距离重点n，只要算好临界值就行了
+	//另外就是如果n大于等于链表长度的话，大于不删除，等于，删第一个
 
+    //head是有内容的，不是空节点！！！！！！//创造一个头节点，因为考虑到删除头节点，逻辑太难做了，创造一个头，间隔什么的好处理
+
+    ListNode* newHead = new ListNode();
+    newHead->next = head;
+	ListNode* fast = newHead;
+	ListNode* prev = newHead;//slow作为prev
+	while (n-- && fast && fast->next)
+		fast = fast->next;
+	while (fast && fast->next) {
+		fast = fast->next;
+		prev = prev->next;
+	}
+	if (prev && prev->next)
+	{
+		//ListNode* p = prev->next;//耗费时间的操作
+		prev->next = prev->next->next;
+		//delete p;//耗费时间的操作
+	}
+	return newHead->next;
+
+}
 
 
 bool Solution_0xx::isValid(std::string s) {
@@ -196,7 +220,7 @@ ListNode* Solution_0xx::mergeTwoLists(ListNode* l1, ListNode* l2) {
 }
 
 
-inline void back_tracking(int n, std::vector<std::string> &res, int left, int right, std::string str) {
+/* */ void back_tracking(int n, std::vector<std::string> &res, int left, int right, std::string str) {
     if (left < right)//概括所有错误
         return;
     if (left == right && right == n) {//遍历结束
@@ -301,7 +325,7 @@ int sqrt(int x)
 
 
 
-inline int searchInsert_recursion_old(std::vector<int>& nums, int start, int end, int target) {
+/* */ int searchInsert_recursion_old(std::vector<int>& nums, int start, int end, int target) {
     if (end < start)//关于插入，结束条件需要注意，因为我的实现mid-1，所以mid会小于start，但是插入点应该是start，这种逻辑能通，但乱，所以优化掉
         return start;
     if (end == start) {//寻找到最后，考虑插入问题
@@ -326,7 +350,7 @@ inline int searchInsert_recursion_old(std::vector<int>& nums, int start, int end
 //下一次递归传入0,1
 //mid是0，再下一次循环，左侧是下标0，右侧是下标1，能锁定end==start的终止条件
 //到了终止条件（只剩一个数）就需要判断，是插入当前位置还是下一个位置
-inline int searchInsert_recursion(std::vector<int>& nums, int start, int end, int target) {
+/* */ int searchInsert_recursion(std::vector<int>& nums, int start, int end, int target) {
     if (end == start) {//寻找到最后，考虑插入问题
         if (target <= nums[start])
             return start;
@@ -472,6 +496,37 @@ int Solution_0xx::trap(std::vector<int>& height) {
 
 
 
+string Solution_0xx::countAndSay(int n) {
+    //用循环迭代取代递归，节约调用开销；在循环内完成字符串拼接，而不是最后遍历vector，会降低复杂度???
+    //同样的代码，不同的变量，好像时间就不同
+    //注意遍历过程中的条件控制
+    //还有一个规律，不管怎么变，尾数永远是1//是后插好还是前插好？从尾部遍历的话，尾部的起点方便点,不过能够初始化就都一样
+
+    //各种不必要的容器和容器遍历是一方面，递归调用比while慢也是一方面
+    //核心差距:一个string的+=差了那么多？
+    if (n <= 0)
+        return "";
+    string res = "1";
+
+    while (--n) {
+        string curStr = "";
+        for (int i = 0; i < res.size(); ++i) {//++i容易产生逻辑冲突，在类双指针逻辑中
+            int count = 1;
+            while (i + 1 < res.size() && res[i] == res[i + 1]) {//用i+1试探
+                i++;
+                count++;
+            }
+            //char_statistics.push_back(make_pair(curr, count));//节省这个vec的遍历操作，把更新ret的过程放到前一次循环中
+            curStr += to_string(count) + res[i];
+        }
+        res = curStr;
+    }
+
+
+    return res;
+
+}
+
 double Solution_0xx::newtonSqrt(double n) {
     double x0 = n;
     while (abs(x0*x0 - n) >= 1e-6) {
@@ -529,5 +584,20 @@ void Solution_0xx::merge(std::vector<int>& nums1, int m, std::vector<int>& nums2
     while (p2 >= 0)
         nums1[insert_index--] = nums2[p2--];
 
+}
+
+/* */ void inorder_recuision(TreeNode* root, vector<int>& res_vec) {
+	if (!root)//stop
+		return;
+
+	inorder_recuision(root->left, res_vec);
+	res_vec.push_back(root->val);
+	inorder_recuision(root->right, res_vec);
+}
+
+vector<int> Solution_0xx::inorderTraversal(TreeNode* root) {
+	vector<int> res_vec;
+	inorder_recuision(root, res_vec);
+	return res_vec;
 }
 

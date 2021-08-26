@@ -30,9 +30,9 @@ int main() {
     */
 
 
-
-    /////////////////////////solution20-29 start///////////////////////////////////////////
-    Solution_0xx sol_2x;
+	/////////////////////////solution20-29 start///////////////////////////////////////////
+	Solution_0xx sol_0xx;
+	Solution_0xx sol_2x;
     Solution_0xx sol_3x;
     Solution_0xx sol_0x;
     Solution_0xx sol_4x;
@@ -44,11 +44,29 @@ int main() {
     Solution_2xx sol_2xx;
     Solution_2xx sol_20x;
     Solution_2xx sol_24x;
-    Solution_1xx sol_12x;
-    Solution_5xx sol_50x;
-    Solution_7xx sol_70x;
+	Solution_1xx sol_12x;
+	Solution_5xx sol_50x;
+	Solution_5xx sol_5xx;
+    Solution_7xx sol_7xx;
     Solution_9xx sol_97x;
     Solution_2xx sol_27x(1702766719);
+
+// 	std::vector<std::vector<int>> matrix_floodFill(
+// 		{ {  1 ,  1 ,  0 ,  0 ,  0  },
+// 		{  1 ,  1 ,  0 ,  0 ,  0  },
+// 		{  0 ,  0 ,  1 ,  0 ,  0  },
+// 		{  0 ,  0 ,  0 ,  1 ,  1  } });
+	std::vector<std::vector<int>> matrix_floodFill(
+		{ {  0 ,  0 ,  0  },
+		{  0 ,  1 ,  1 } });
+    sol_7xx.floodFill_trick(matrix_floodFill, 1, 1, 1);
+
+
+    sol_5xx.checkInclusion("ba", "xab");
+
+	ListNode* tail = new ListNode(1);
+	ListNode* head = new ListNode(0, tail);
+    ListNode* retNode = sol_0xx.removeNthFromEnd(head,1);
 
     std::vector<int> nums_rob({ 2,3,2 });
 
@@ -61,7 +79,7 @@ int main() {
     sol_50x.fib(8);
 
     std::vector<int> nums_search({ 1,3 });
-    //int ret70 = sol_70x.search(nums_search, 2);
+    //int ret70 = sol_7xx.search(nums_search, 2);
     //int ret3 = sol_3x.searchInsert(nums_search, 0);
     //int ret27 = sol_27x.firstBadVersion(2126753390);
 

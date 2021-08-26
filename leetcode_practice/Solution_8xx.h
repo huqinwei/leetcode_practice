@@ -11,6 +11,12 @@
 class Solution_8xx {
 public:
 
+    //876 链表的中间节点：我想了一下，强行造环，快慢指针相遇也不行，也是至少遍历一圈再追半圈
+    ListNode* middleNode(ListNode* head);
+
+
+
+
     //887扔鸡蛋，问找到f的最小次数！
 
 
